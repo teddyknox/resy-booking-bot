@@ -25,3 +25,9 @@ val root = Project("resy-booking-bot", file("."))
     publish := {},
     publishLocal := {}
   )
+
+assemblyMergeStrategy in assembly := {
+ case PathList("META-INF", _*) => MergeStrategy.discard
+ case PathList("reference.conf") => MergeStrategy.concat
+ case _                        => MergeStrategy.first
+}
